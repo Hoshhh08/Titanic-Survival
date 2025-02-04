@@ -14,17 +14,33 @@ with open('scaler.pkl', 'rb') as scaler_file:
 # Streamlit UI Setup:
 st.set_page_config(page_title='Survival Quest: Titanic Edition', layout='centered')
 
+# Add Background GIF (Replace 'background.gif' with your file path or URL)
+gif_path = "https://i.pinimg.com/originals/8a/17/ba/8a17baa38518709469915741d11cea1a.gif"  # Update with your actual GIF file path or URL
+st.markdown(
+    f"""
+    <style>
+        @keyframes moveBackground {{
+            0% {{ background-position: 0% 50%; }}
+            50% {{ background-position: 100% 50%; }}
+            100% {{ background-position: 0% 50%; }}
+        }}
+
+        body {{
+            background: url('{gif_path}') no-repeat center center fixed;
+            background-size: cover;
+            animation: moveBackground 20s infinite linear;
+        }}
+
+        div[data-testid="stPopOverContent"] {{
+            width: 500px !important;  /* Adjust width here */
+        }}
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 st.title('Titanic Survival Predictor')
 st.markdown('### Choose the features from the pop-up window to predict survival.')
-
-# Custom CSS to adjust pop-up width
-st.markdown("""
-    <style>
-        div[data-testid="stPopOverContent"] {
-            width: 500px !important;  /* Adjust width here */
-        }
-    </style>
-""", unsafe_allow_html=True)
 
 # Initialize session state for feature values:
 if 'features' not in st.session_state:
