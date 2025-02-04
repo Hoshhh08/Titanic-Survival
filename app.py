@@ -14,21 +14,6 @@ with open('scaler.pkl', 'rb') as scaler_file:
 # Streamlit UI Setup:
 st.set_page_config(page_title='Survival Quest: Titanic Edition', layout='centered')
 
-# Add Background GIF (Replace 'background.gif' with your file path or URL)
-gif_url = "https://i.pinimg.com/originals/8a/17/ba/8a17baa38518709469915741d11cea1a.gif"  # Update with your actual GIF file path or URL
-# Inject CSS for Background GIF
-st.markdown(
-    f"""
-    <style>
-        [data-testid="stAppViewContainer"] > .main {{
-            background: url("{gif_url}") no-repeat center center fixed;
-            background-size: cover;
-        }}
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-
 st.title('Titanic Survival Predictor')
 st.markdown('### Choose the features from the pop-up window to predict survival.')
 
