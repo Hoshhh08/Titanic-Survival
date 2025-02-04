@@ -36,7 +36,7 @@ if 'features' not in st.session_state:
 # Pop-up for Feature Selection:
 with st.popover('Select Features'):
     age = st.slider('Age',1,100,st.session_state.features['Age'])
-    sibsp = st.number_input('Siblings/Spouses Aboard',0,10,st.session_state.features['Sibsp'])
+    sibsp = st.number_input('Siblings/Spouses Aboard',0,10,st.session_state.features['SibSp'])
     parch = st.number_input('Parents/Children Aboard',0,10,st.session_state.features['Parch'])
     gender = st.radio('Gender',['Male','Female'])
     embarked = st.radio('Embarked at Cherbourg?',['No','Yes'])
