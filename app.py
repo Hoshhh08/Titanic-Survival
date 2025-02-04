@@ -89,11 +89,16 @@ for col, (key, value) in zip(cols, st.session_state.features.items()):
         value = "Yes" if value == 1 else "No"
 
 
-    # Use a wider column layout to prevent cutting off text
+    #  Display with a horizontal divider (No background)
     with col:
         st.markdown(
-            f"<div style='text-align:center; padding:10px; border-radius:10px;'>"
-            f"<b>{display_name}</b><br><span style='font-size:18px;'>{value}</span></div>", 
+            f"""
+            <div style="text-align:center;">
+                <b>{display_name}</b>
+                <hr style="margin: 5px 0; border: 1px solid #ddd;">
+                <span style="font-size:18px;">{value}</span>
+            </div>
+            """, 
             unsafe_allow_html=True
         )
 
