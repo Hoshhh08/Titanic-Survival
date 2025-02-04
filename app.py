@@ -74,5 +74,5 @@ if st.button('Predict Survival'):
     prediction = model.predict(input_scaled)[0]
 
     # Display result
-    result = "Survived 🎉" if prediction == 1 else "Did Not Survive 😔"
+    result = "Survived 🎉" if prediction == 1 else "Sadly, Did Not Survive 😔"
     st.subheader(f"Prediction: {result}")
