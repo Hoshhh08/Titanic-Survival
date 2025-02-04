@@ -67,22 +67,28 @@ with st.popover('Select Features'):
 
 # Display Selected Features
 # Mapping of feature names (coded → user-friendly display names)
-
 feature_display_names = {
     "Age": "Age (Years)",
     "SibSp": "Siblings/Spouses",
     "Parch": "Parents/Children",
-    "Sex_female": "Gender (Female)",
-    "Embarked_C": "Embarked at Cherbourg",
-    "WealthScore": "Wealth Score (Pclass × Fare)",
+    "Sex_female": "Gender",
+    "Embarked_C": "Board at Cherbourg",
+    "WealthScore": "Wealth-Score",
 }
 
 st.write('### Selected Features:')
 cols = st.columns(len(st.session_state.features))  # Create columns dynamically
 
 for col, (key, value) in zip(cols, st.session_state.features.items()):
-    display_name = feature_display_names.get(key, key)  # Use mapped name or fallback to original
-    col.metric(label=display_name, value=value)  # Show formatted name and value
+    display_name = feature_display_names.get(key, key)  # Get user-friendly name
+    
+    # Apply formatting directly inside the loop
+    if key == "Sex_female":
+        value = "Female" if value == 1 else "Male"
+    elif key == "Embarked_C":
+        value = "Yes" if value == 1 else "No"
+    
+    col.metric(label=display_name, value=value)  # Display in columns
 
 # Prediction Button
 if st.button('Predict Survival'):
