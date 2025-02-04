@@ -67,8 +67,10 @@ with st.popover('Select Features'):
 
 # Display Selected Features
 st.write('### Selected Features:')
-for key, value in st.session_state.features.items():
-    st.write(f'- **{key}:** {value}')
+cols = st.columns(len(st.session_state.features))  # Create a column for each feature
+
+for col, (key, value) in zip(cols, st.session_state.features.items()):
+    col.metric(label=key, value=value)  # Display each feature in a separate column
 
 # Prediction Button
 if st.button('Predict Survival'):
