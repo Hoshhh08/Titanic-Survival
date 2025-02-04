@@ -14,6 +14,23 @@ with open('scaler.pkl', 'rb') as scaler_file:
 # Streamlit UI Setup:
 st.set_page_config(page_title='Survival Quest: Titanic Edition', layout='centered')
 
+# Custom CSS for background image
+background_image_url = "https://wallpapers.com/images/hd/mysterious-depth-titanic-s-resting-place-5vz4ngy0u63yv24g.jpg"  # Replace with your image URL
+
+st.markdown(
+    f"""
+    <style>
+    .stApp {{
+        background: url({background_image_url});
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }}
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 st.title('Titanic Survival Predictor')
 st.markdown('### Choose the features from the pop-up window to predict survival.')
 
