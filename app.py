@@ -24,34 +24,42 @@ st.markdown('### Choose the features from the pop-up window to predict survival.
 # Initialize session state for feature values:
 if 'features' not in st.session_state:
     st.session_state.features = {
-        'Age': 20,
+        'Age': 28,
         'SibSp':0,
         'Parch':0,
         'Sex_female':0,
         'Embarked_C':0,
-        'WealthScore':75, # Default Value of Pclass*fare
+        'WealthScore':25, # Default Value of Pclass*fare
     }
 
+if "show_popover" not in st.session_state:
+    st.session_state.show_popover = False  # Controls pop-up visibility
+
+# Toggle popover visibility
+if st.button("Select Features"):
+    st.session_state.show_popover = True
 
 # Pop-up for Feature Selection:
-with st.popover('Select Features'):
-    age = st.slider('Age',1,100,st.session_state.features['Age'])
-    sibsp = st.number_input('Siblings/Spouses Aboard',0,10,st.session_state.features['SibSp'])
-    parch = st.number_input('Parents/Children Aboard',0,10,st.session_state.features['Parch'])
-    gender = st.radio('Gender',['Male','Female'])
-    embarked = st.radio('Embarked at Cherbourg?',['No','Yes'])
-    wealthscore = st.number_input('WealthScore[Pclass*Fare]',0,600,st.session_state.features['WealthScore'])
+if st.session_state.show_popover:
+    with st.popover('Select Features'):
+        age = st.slider('Age',1,100,st.session_state.features['Age'])
+        sibsp = st.number_input('Siblings/Spouses Aboard',0,10,st.session_state.features['SibSp'])
+        parch = st.number_input('Parents/Children Aboard',0,10,st.session_state.features['Parch'])
+        gender = st.radio('Gender',['Male','Female'])
+        embarked = st.radio('Embarked at Cherbourg?',['No','Yes'])
+        wealthscore = st.number_input('WealthScore[Pclass*Fare]',0,600,st.session_state.features['WealthScore'])
 
-    if st.button('Apply Features'):
-        st.session_state.features = {
-            "Age": age,
-            "SibSp": sibsp,
-            "Parch": parch,
-            "Sex_female": 1 if gender == "Female" else 0,
-            "Embarked_C": 1 if embarked == "Yes" else 0,
-            "WealthScore": wealthscore,
+        if st.button('Apply Features'):
+            st.session_state.features = {
+                "Age": age,
+                "SibSp": sibsp,
+                "Parch": parch,
+                "Sex_female": 1 if gender == "Female" else 0,
+                "Embarked_C": 1 if embarked == "Yes" else 0,
+                "WealthScore": wealthscore,
         }
-        st.rerun()  # Refresh UI to apply changes
+            st.session_state.show_popover = False  # Close pop-up
+            st.rerun()  # Refresh UI to apply changes
 
 
 # Display Selected Features
