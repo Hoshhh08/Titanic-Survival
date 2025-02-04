@@ -7,10 +7,10 @@ from sklearn.preprocessing import StandardScaler
 
 # Load trained model file:
 
-with open('D:/AssignmentDatasets/Logistic Regression/trained_logi_model.pkl','rb') as model_file:
+with open('trained_logi_model.pkl','rb') as model_file:
     model = pkl.load(model_file)
 
-with open('D:/AssignmentDatasets/Logistic Regression/scaler.pkl','rb') as scaler_file:
+with open('scaler.pkl','rb') as scaler_file:
     scaler = pkl.load(scaler_file)
 
 
