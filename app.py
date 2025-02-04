@@ -89,11 +89,11 @@ for col, (key, value) in zip(cols, st.session_state.features.items()):
         value = "Yes" if value == 1 else "No"
 
 
-    #  Display with a horizontal divider (No background)
+    # Display the feature and value without wrapping and background
     with col:
         st.markdown(
             f"""
-            <div style="text-align:center;">
+            <div style="text-align:center; white-space: nowrap;">
                 <b>{display_name}</b>
                 <hr style="margin: 5px 0; border: 1px solid #ddd;">
                 <span style="font-size:18px;">{value}</span>
