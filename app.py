@@ -88,7 +88,10 @@ for col, (key, value) in zip(cols, st.session_state.features.items()):
     elif key == "Embarked_C":
         value = "Yes" if value == 1 else "No"
     
-    col.metric(label=display_name, value=value)  # Display in columns
+    # Use st.container() to allow text wrapping
+with col:
+    st.markdown(f"**{display_name}**<br><span style='font-size:18px;'>{value}</span>", 
+                unsafe_allow_html=True)
 
 # Prediction Button
 if st.button('Predict Survival'):
