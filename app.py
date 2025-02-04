@@ -92,7 +92,7 @@ for col, (key, value) in zip(cols, st.session_state.features.items()):
     # Use a wider column layout to prevent cutting off text
     with col:
         st.markdown(
-            f"<div style='text-align:center; padding:10px; border-radius:10px; background-color:#f4f4f4;'>"
+            f"<div style='text-align:center; padding:10px; border-radius:10px;'>"
             f"<b>{display_name}</b><br><span style='font-size:18px;'>{value}</span></div>", 
             unsafe_allow_html=True
         )
