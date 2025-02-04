@@ -72,7 +72,7 @@ feature_display_names = {
     "SibSp": "Siblings/Spouses",
     "Parch": "Parents/Children",
     "Sex_female": "Gender",
-    "Embarked_C": "Board at Cherbourg",
+    "Embarked_C": "Cherbourg",
     "WealthScore": "Wealth-Score",
 }
 
