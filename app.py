@@ -87,11 +87,15 @@ for col, (key, value) in zip(cols, st.session_state.features.items()):
         value = "Female" if value == 1 else "Male"
     elif key == "Embarked_C":
         value = "Yes" if value == 1 else "No"
-    
-    # Use st.container() to allow text wrapping
+
+
+    # Use a wider column layout to prevent cutting off text
     with col:
-        st.markdown(f"**{display_name}**<br><span style='font-size:18px;'>{value}</span>", 
-                unsafe_allow_html=True)
+        st.markdown(
+            f"<div style='text-align:center; padding:10px; border-radius:10px; background-color:#f4f4f4;'>"
+            f"<b>{display_name}</b><br><span style='font-size:18px;'>{value}</span></div>", 
+            unsafe_allow_html=True
+        )
 
 # Prediction Button
 if st.button('Predict Survival'):
