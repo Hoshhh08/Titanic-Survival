@@ -89,8 +89,8 @@ for col, (key, value) in zip(cols, st.session_state.features.items()):
         value = "Yes" if value == 1 else "No"
     
     # Use st.container() to allow text wrapping
-with col:
-    st.markdown(f"**{display_name}**<br><span style='font-size:18px;'>{value}</span>", 
+    with col:
+        st.markdown(f"**{display_name}**<br><span style='font-size:18px;'>{value}</span>", 
                 unsafe_allow_html=True)
 
 # Prediction Button
