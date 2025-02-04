@@ -25,7 +25,7 @@ st.markdown('### Choose the features from the pop-up window to predict survival.
 if 'features' not in st.session_state:
     st.session_state.features = {
         'Age': 20,
-        'Sibsp':0,
+        'SibSp':0,
         'Parch':0,
         'Sex_female':0,
         'Embarked_C':0,
