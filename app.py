@@ -57,7 +57,7 @@ with st.popover('Select Features'):
 # Display Selected Features
 st.write('### Selected Features:')
 for key, value in st.session_state.features.items():
-    st.write(f'- **{key}:**{value}')
+    st.write(f'- **{key}:** {value}')
 
 
 # Prediction Button
